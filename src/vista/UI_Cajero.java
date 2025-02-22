@@ -4,7 +4,7 @@
  */
 package vista;
 
-import cola.Cajero;
+
 import cola.Cola;
 import data.Cliente;
 import java.awt.event.ActionEvent;
@@ -181,43 +181,43 @@ public class UI_Cajero extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void generarCliente() {
-
-        int idCliente = clientesAtendidos + 1;
-        int monto = 100 + random.nextInt(900);
-        Duration tiempoServicio = Duration.ofSeconds(1 + random.nextInt(10));
-        int transaccion = random.nextInt(3);
-
-        Cajero cliente = new Cajero(0, idCliente, monto, tiempoServicio, transaccion);
-        colaClientes.encolar(cliente);
-        clientesAtendidos++;
+//
+//        int idCliente = clientesAtendidos + 1;
+//        int monto = 100 + random.nextInt(900);
+//        Duration tiempoServicio = Duration.ofSeconds(1 + random.nextInt(10));
+//        int transaccion = random.nextInt(3);
+//
+//        Cajero cliente = new Cajero(0, idCliente, monto, tiempoServicio, transaccion);
+//        colaClientes.encolar(cliente);
+//        clientesAtendidos++;
     }
 
     private void atenderClientes() {
-        for (int i = 0; i < cajeros.size(); i++) {
-            if (cajeros.get(i).isEmpty() && !colaClientes.estaVacia()) {
-                Cajero cliente = colaClientes.desencolar();
-                cajeros.get(i).add(cliente);
-                clientesPorCajero[i]++;
-                tiempoTotalPorCajero[i] = tiempoTotalPorCajero[i].plus(cliente.getTiemposervicio());
-            }
-        }
+//        for (int i = 0; i < cajeros.size(); i++) {
+//            if (cajeros.get(i).isEmpty() && !colaClientes.estaVacia()) {
+//                Cajero cliente = colaClientes.desencolar();
+//                cajeros.get(i).add(cliente);
+//                clientesPorCajero[i]++;
+//                tiempoTotalPorCajero[i] = tiempoTotalPorCajero[i].plus(cliente.getTiemposervicio());
+//            }
+//        }
     }
 
     private void actualizarInterfaz() {
 
-        textArea1.setText("");
-        for (int i = 0; i < cajeros.size(); i++) {
-            textArea1.append("Cajero " + (i + 1) + ":\n");
-            textArea1.append("  Clientes atendidos: " + clientesPorCajero[i] + "\n");
-            if (!cajeros.get(i).isEmpty()) {
-                Cajero clienteActual = cajeros.get(i).get(cajeros.get(i).size() - 1);
-                textArea1.append("  Cliente actual: " + clienteActual.getIdcliente() + "\n");
-                textArea1.append("  Monto: " + clienteActual.getMonto() + "\n");
-                textArea1.append("  Tiempo restante: " + clienteActual.getTiemposervicio().toSeconds() + " segundos\n");
-            } else {
-                textArea1.append("  Libre\n");
-            }
-        }
+//        textArea1.setText("");
+//        for (int i = 0; i < cajeros.size(); i++) {
+//            textArea1.append("Cajero " + (i + 1) + ":\n");
+//            textArea1.append("  Clientes atendidos: " + clientesPorCajero[i] + "\n");
+//            if (!cajeros.get(i).isEmpty()) {
+//                Cajero clienteActual = cajeros.get(i).get(cajeros.get(i).size() - 1);
+//                textArea1.append("  Cliente actual: " + clienteActual.getIdcliente() + "\n");
+//                textArea1.append("  Monto: " + clienteActual.getMonto() + "\n");
+//                textArea1.append("  Tiempo restante: " + clienteActual.getTiemposervicio().toSeconds() + " segundos\n");
+//            } else {
+//                textArea1.append("  Libre\n");
+//            }
+//        }
     }
 
     private void mostrarResultados() {
