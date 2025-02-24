@@ -28,10 +28,10 @@ public class UI_Cajero extends javax.swing.JFrame {
     private LinkedList<Cajero> cajeros;
     private Timer timer;
     private int clientesAtendidos;
-    private final int[] clientesPorCajero;
-    private final Duration[] tiempoTotalPorCajero;
-    private final Random random;
-    private final DefaultTableModel tableModel;
+   // private final int[] clientesPorCajero;
+   // private final Duration[] tiempoTotalPorCajero;
+//    private final Random random;
+//    private final DefaultTableModel tableModel;
 
     /**
      * Creates new form IU_Cajero
@@ -50,14 +50,14 @@ public class UI_Cajero extends javax.swing.JFrame {
             }
         });
         timer.setRepeats(true);
-        timer.start();
-        while (true) {
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                System.out.println("Error "+e.toString());
-            }
-        }
+//        timer.start();
+//        while (true) {
+//            try {
+//                Thread.sleep(1000);
+//            } catch (InterruptedException e) {
+//                System.out.println("Error "+e.toString());
+//            }
+//        }
        
 
 //        tableModel = (DefaultTableModel) jTable1.getModel();
@@ -68,11 +68,19 @@ public class UI_Cajero extends javax.swing.JFrame {
         revisarCajeros();
     }
     public void crearClientes(){
-        
+//      for para generar una cantidad de cliente X y encolar 
     }
     
     public void revisarCajeros(){
-        
+        //revisar cada cajero
+        for (int i = 0; i < cajeros.size(); i++) {
+            Cajero objCajero = cajeros.get(i);
+            if(objCajero.isEstado()==true){
+//                aqui asignar datos del cliente sacar elemento de la cola 
+            }else{
+                //si cajero ocupado entones restar tiempo
+            }
+        }
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -163,11 +171,6 @@ public class UI_Cajero extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
-        timer = new Timer(1000, (ActionEvent e) -> {
-            generarCliente();
-            atenderClientes();
-            actualizarInterfaz();
-        });
         timer.start();
 
 // TODO add your handling code here:
@@ -222,14 +225,14 @@ public class UI_Cajero extends javax.swing.JFrame {
 
     private void mostrarResultados() {
 
-        textArea1.append("\n--- Resultados Finales ---\n");
-        for (int i = 0; i < cajeros.size(); i++) {
-            textArea1.append("Cajero " + (i + 1) + ":\n");
-            textArea1.append("  Clientes atendidos: " + clientesPorCajero[i] + "\n");
-            textArea1.append("  Tiempo total de servicio: " + tiempoTotalPorCajero[i].toSeconds() + " Segundos\n");
-            textArea1.append("  Tiempo promedio por transacción: " + tiempoTotalPorCajero[i].dividedBy(clientesPorCajero[i]).toSeconds() + " segundos\n");
-        }
-        textArea1.append("Clientes en cola sin atender: " + colaClientes.toString() + "\n");
+//        textArea1.append("\n--- Resultados Finales ---\n");
+//        for (int i = 0; i < cajeros.size(); i++) {
+//            textArea1.append("Cajero " + (i + 1) + ":\n");
+//            textArea1.append("  Clientes atendidos: " + clientesPorCajero[i] + "\n");
+//            textArea1.append("  Tiempo total de servicio: " + tiempoTotalPorCajero[i].toSeconds() + " Segundos\n");
+//            textArea1.append("  Tiempo promedio por transacción: " + tiempoTotalPorCajero[i].dividedBy(clientesPorCajero[i]).toSeconds() + " segundos\n");
+//        }
+//        textArea1.append("Clientes en cola sin atender: " + colaClientes.toString() + "\n");
     }
 
     /**

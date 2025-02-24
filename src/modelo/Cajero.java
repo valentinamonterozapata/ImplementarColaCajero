@@ -14,6 +14,9 @@ public class Cajero {
 
     private int Tiempototal;
     private int tiempoCliente;
+    private boolean estado;
+
+   
 
     public Cajero() {
     }
@@ -25,6 +28,25 @@ public class Cajero {
      public void sumarMontoTotal(){
         montototal+=getMontoCliente();
     }
+     
+      /**
+     * Get the value of estado
+     *
+     * @return the value of estado
+     */
+    public boolean isEstado() {
+        return estado;
+    }
+
+    /**
+     * Set the value of estado
+     *
+     * @param estado new value of estado
+     */
+    public void setEstado(boolean estado) {
+        this.estado = estado;
+    }
+
     /**
      * Get the value of montototal
      *
